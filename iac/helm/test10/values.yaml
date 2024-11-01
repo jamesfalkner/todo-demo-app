@@ -32,15 +32,7 @@ helm_service_cd3064041cf15bbba31e1dc6e7966ea2:
     target_port: 80
     type: ClusterIP
 helm_workload_1b726bfdadb75964b2167b12a98c34ba:
-    env:
-        DB_HOST: localhost
-        DB_NAME: mydb
-        DB_PORT: "5432"
-        POSTGRES_PASS: petclinic
-        POSTGRES_URL: localhost/petclinic
-        POSTGRES_USER: petclinic
-        TODO_BUCKET_NAME: quarkus-todo
-        TODO_NOTIFICATION_ARN: none
+    env: {}
     env_from_config: []
     env_from_secret:
         - stackgen-quarkus-demo-secret
