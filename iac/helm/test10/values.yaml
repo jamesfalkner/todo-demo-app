@@ -29,7 +29,7 @@ helm_service_cd3064041cf15bbba31e1dc6e7966ea2:
     protocol: TCP
     selector_labels:
         service: myapp
-    target_port: 80
+    target_port: 8080
     type: ClusterIP
 helm_workload_1b726bfdadb75964b2167b12a98c34ba:
     env: {}
@@ -44,7 +44,7 @@ helm_workload_1b726bfdadb75964b2167b12a98c34ba:
     labels:
         service: myapp
     name: todo-demo-app
-    port: 80
+    port: 8080
     protocol: TCP
     replicas: 1
     service_account: todo-demo-app
