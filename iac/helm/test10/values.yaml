@@ -15,12 +15,7 @@ helm_ingress_10543cbc8b0450aa8101cdc554e46280:
     labels:
         service: myapp
     name: todo-demo-app
-    rules:
-        - host: stackgen-demo.apps.cluster-qpjn4.qpjn4.sandbox2789.opentlc.com
-          http: ""
-          path: /
-          pathType: Prefix
-          paths: ""
+    rules: []
     tls: ""
 helm_service_account_814e7456c6bb5068bbb3a7dde5eb7ea4:
     annotations: {}
