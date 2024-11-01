@@ -62,7 +62,7 @@ public class S3SyncClientResource extends CommonResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<FileObject> listFiles() {
-        ListObjectsRequest listRequest = ListObjectsRequest.builder().bucket(bucketName).build();
+        ListObjectsRequest listRequest = ListObjectsRequest.builder().bucket("quarkus-todo-bucket").build();
 
         //HEAD S3 objects to get metadata
         return s3.listObjects(listRequest).contents().stream()
