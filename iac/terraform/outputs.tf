@@ -1,12 +1,12 @@
 
-output "aws_iam_role_todo_demo_app_role_arn" {
-  value = module.stackgen_98a9e166-ff57-5eb0-b8b4-df529ff36520.arn
+output "aws_iam_role_todo_demo_app_role_name" {
+  value = module.stackgen_98a9e166-ff57-5eb0-b8b4-df529ff36520.name
   sensitive = false
 }
 
 
-output "aws_iam_role_todo_demo_app_role_name" {
-  value = module.stackgen_98a9e166-ff57-5eb0-b8b4-df529ff36520.name
+output "aws_iam_role_todo_demo_app_role_arn" {
+  value = module.stackgen_98a9e166-ff57-5eb0-b8b4-df529ff36520.arn
   sensitive = false
 }
 
@@ -47,18 +47,6 @@ output "aws_rds_default_rds_endpoint" {
 }
 
 
-output "aws_s3_quarkus_stackgen_init_arn" {
-  value = module.stackgen_c2d99b1a-d701-5ab3-9e0c-a935c463cec4.arn
-  sensitive = false
-}
-
-
-output "aws_s3_quarkus_stackgen_init_bucket_name" {
-  value = module.stackgen_c2d99b1a-d701-5ab3-9e0c-a935c463cec4.bucket_name
-  sensitive = false
-}
-
-
 output "aws_s3_quarkus_stackgen_init_bucket_website_endpoint" {
   value = module.stackgen_c2d99b1a-d701-5ab3-9e0c-a935c463cec4.bucket_website_endpoint
   sensitive = false
@@ -67,6 +55,18 @@ output "aws_s3_quarkus_stackgen_init_bucket_website_endpoint" {
 
 output "aws_s3_quarkus_stackgen_init_kms_arn" {
   value = module.stackgen_c2d99b1a-d701-5ab3-9e0c-a935c463cec4.kms_arn
+  sensitive = false
+}
+
+
+output "aws_s3_quarkus_stackgen_init_arn" {
+  value = module.stackgen_c2d99b1a-d701-5ab3-9e0c-a935c463cec4.arn
+  sensitive = false
+}
+
+
+output "aws_s3_quarkus_stackgen_init_bucket_name" {
+  value = module.stackgen_c2d99b1a-d701-5ab3-9e0c-a935c463cec4.bucket_name
   sensitive = false
 }
 
