@@ -12,6 +12,7 @@ import jakarta.ws.rs.core.Response;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.jboss.logging.Logger;
 import software.amazon.awssdk.services.sns.SnsClient;
+import software.amazon.awssdk.services.sns.model.CreateTopicRequest;
 import software.amazon.awssdk.services.sns.model.PublishResponse;
 
 @Path("/sync/cannon")
@@ -26,8 +27,13 @@ public class QuarksCannonSyncResource {
     @POST
     @Path("/sync")
     @Consumes(MediaType.APPLICATION_JSON)
+
     public Response publish(String notification) throws Exception {
-        sns.createTopic(t -> t.name("quarkus-todo-topic").build());
+        CreateTopicRequest request = CreateTopicRequest.builder()
+        .name("quarkus-todo-topic")
+        .build();
+
+        sns.createTopic(request);
         return Response.ok().build();
     }
 }
