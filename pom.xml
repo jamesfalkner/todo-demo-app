@@ -106,11 +106,6 @@
       <artifactId>quarkus-amazon-sns</artifactId>
     </dependency>
     <dependency>
-      <groupId>software.amazon.jdbc</groupId>
-      <artifactId>aws-advanced-jdbc-wrapper</artifactId>
-      <version>LATEST</version>
-    </dependency>
-    <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-jdbc-h2</artifactId>
       <scope>test</scope>
