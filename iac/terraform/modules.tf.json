@@ -1,0 +1,99 @@
+{
+  "module": {
+    "stackgen_15eb6b02-2d12-4179-b74e-8d14d724a59e": {
+      "name": "quarkus-stackgen-init-aws_s3-todo-demo-app-policy",
+      "policy": "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Sid\": \"AllowKmsAccess\",\n      \"Action\": [\n        \"kms:Decrypt\",\n        \"kms:Encrypt\",\n        \"kms:GenerateDataKey\"\n      ],\n      \"Effect\": \"Allow\",\n      \"Resource\": [\n        \"${module.stackgen_c2d99b1a-d701-5ab3-9e0c-a935c463cec4.kms_arn}\"\n      ]\n    },\n    {\n      \"Sid\": \"tododemoappquarkusstackgeninitS3Bucketc2d99b1ad7015ab39e0ca935c463cec4\",\n      \"Action\": [\n        \"s3:PutObject\",\n        \"s3:PutObjectAcl\",\n        \"s3:PutObjectTagging\",\n        \"s3:GetObject\",\n        \"s3:GetObjectVersion\",\n        \"s3:ListBucket\"\n      ],\n      \"Effect\": \"Allow\",\n      \"Resource\": [\n        \"${module.stackgen_c2d99b1a-d701-5ab3-9e0c-a935c463cec4.arn}\",\n        \"${module.stackgen_c2d99b1a-d701-5ab3-9e0c-a935c463cec4.arn}/*\"\n      ]\n    }\n  ]\n}",
+      "role": "${module.stackgen_98a9e166-ff57-5eb0-b8b4-df529ff36520.name}",
+      "role_type": "Custom",
+      "source": "./modules/aws_iam_role_policy"
+    },
+    "stackgen_23ee8e5e-5898-5e55-a867-159fa6b90565": {
+      "application_failure_feedback_role_arn": null,
+      "application_success_feedback_role_arn": null,
+      "application_success_feedback_sample_rate": null,
+      "content_based_deduplication": false,
+      "delivery_policy": null,
+      "display_name": null,
+      "fifo_topic": false,
+      "firehose_failure_feedback_role_arn": null,
+      "firehose_success_feedback_role_arn": null,
+      "firehose_success_feedback_sample_rate": null,
+      "http_failure_feedback_role_arn": null,
+      "http_success_feedback_role_arn": null,
+      "http_success_feedback_sample_rate": null,
+      "lambda_failure_feedback_role_arn": null,
+      "lambda_success_feedback_role_arn": null,
+      "lambda_success_feedback_sample_rate": null,
+      "signature_version": null,
+      "source": "./modules/aws_sns",
+      "sqs_failure_feedback_role_arn": null,
+      "sqs_success_feedback_role_arn": null,
+      "sqs_success_feedback_sample_rate": null,
+      "tags": {
+        "appstack": "test9",
+        "component": "todo-demo-app"
+      },
+      "topic_name": "MYTOPICNAME",
+      "topic_policy": "",
+      "tracing_config": null,
+      "use_custom_kms_key_for_encryption": true
+    },
+    "stackgen_98a9e166-ff57-5eb0-b8b4-df529ff36520": {
+      "assume_role_policy": "{\n\t\t\"Version\": \"2012-10-17\",\n\t\t\"Statement\":{\n\t\t\t\t\"Action\": \"sts:AssumeRole\",\n\t\t\t\t\"Effect\": \"Allow\",\n\t\t\t\t\"Principal\": {\n\t\t\t\t\t\"Service\": \"eks.amazonaws.com\"\n\t\t\t\t}\n\t\t\t}\n\t}",
+      "description": null,
+      "force_detach_policies": true,
+      "inline_policy": [],
+      "name": "todo-demo-app-role",
+      "source": "./modules/aws_iam_role",
+      "tags": null
+    },
+    "stackgen_c0ef0be3-9f3a-5cd3-87d0-bf42719a4b33": {
+      "cluster_identifier": null,
+      "rds_auto_pause": true,
+      "rds_availability_zones": [
+        "us-east-1a",
+        "us-east-1b"
+      ],
+      "rds_backup_retention_period": 9,
+      "rds_database_name": "default",
+      "rds_db_subnet_group_name": "default",
+      "rds_engine": "postgres",
+      "rds_engine_mode": "provisioned",
+      "rds_engine_version": "16.4",
+      "rds_master_password": "password",
+      "rds_master_username": "admin",
+      "rds_max_capacity": 2,
+      "rds_min_capacity": 1,
+      "rds_preferred_backup_window": "07:00-09:00",
+      "rds_preferred_maintenance_window": "sun:05:00-sun:06:00",
+      "rds_storage_encrypted": true,
+      "region": "${var.region}",
+      "security_groups": null,
+      "source": "./modules/aws_rds",
+      "tags": null,
+      "use_custom_kms_key_for_encryption": false
+    },
+    "stackgen_c2d99b1a-d701-5ab3-9e0c-a935c463cec4": {
+      "block_public_access": true,
+      "bucket_name": "quarkus-stackgen-init",
+      "bucket_policy": "",
+      "enable_versioning": true,
+      "enable_website_configuration": false,
+      "source": "./modules/aws_s3",
+      "sse_algorithm": "aws:kms",
+      "tags": {
+        "appstack": "test9",
+        "component": "todo-demo-app"
+      },
+      "website_error_document": "404.html",
+      "website_index_document": "index.html"
+    },
+    "stackgen_da2dfb1a-7b08-4fd5-a649-0ead5e3dfba9": {
+      "name": "aws_sns-todo-demo-app-policy",
+      "policy": "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Sid\": \"AllowKmsAccess\",\n      \"Action\": [\n        \"kms:Decrypt\",\n        \"kms:Encrypt\",\n        \"kms:GenerateDataKey\"\n      ],\n      \"Effect\": \"Allow\",\n      \"Resource\": [\n        \"*\"\n      ]\n    },\n    {\n      \"Sid\": \"tododemoappSNS23ee8e5e58985e55a867159fa6b90565\",\n      \"Action\": [\n        \"sns:CreateTopic\",\n        \"iam:PassRole\"\n      ],\n      \"Effect\": \"Allow\",\n      \"Resource\": [\n        \"${module.stackgen_23ee8e5e-5898-5e55-a867-159fa6b90565.arn}\"\n      ]\n    }\n  ]\n}",
+      "role": "${module.stackgen_98a9e166-ff57-5eb0-b8b4-df529ff36520.name}",
+      "role_type": "Custom",
+      "source": "./modules/aws_iam_role_policy"
+    }
+  }
+}
