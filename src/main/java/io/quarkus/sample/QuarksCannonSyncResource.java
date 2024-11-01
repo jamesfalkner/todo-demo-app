@@ -30,7 +30,8 @@ public class QuarksCannonSyncResource {
     @Path("/sync")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response publish(String notification) throws Exception {
-        PublishResponse response = sns.publish(p -> p.topicArn(topicArn).message(notification));
+
+        PublishResponse response = sns.publish(p -> p.topicArn("quarkus-todo-topic").message(notification));
         return Response.ok().entity(response.messageId()).build();
     }
 }
