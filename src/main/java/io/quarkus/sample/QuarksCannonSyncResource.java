@@ -27,7 +27,7 @@ public class QuarksCannonSyncResource {
     @Path("/sync")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response publish(String notification) throws Exception {
-        sns.createTopic(t -> t.name("quarkus-todo-topic"));
+        sns.createTopic(t -> t.name("quarkus-todo-topic").build());
         return Response.ok().build();
     }
 }
