@@ -1,0 +1,52 @@
+helm_hpa_a996c224f9d757b1b8c6a0b55d394e8a:
+    enabled: true
+    max_replicas: 2
+    min_replicas: 1
+    name: todo-demo-app
+    target_cpu_utilization_percentage: 50
+    target_memory_utilization_percentage: 50
+    workload_kind: Deployment
+    workload_name: todo-demo-app
+helm_ingress_10543cbc8b0450aa8101cdc554e46280:
+    annotations:
+        kubernetes.io/ingress.allow-http: "false"
+    class_name: todo-demo-app
+    default_backend_name: todo-demo-app
+    default_backend_port: 80
+    labels:
+        service: myapp
+    name: todo-demo-app
+    rules: []
+    tls: ""
+helm_service_account_814e7456c6bb5068bbb3a7dde5eb7ea4:
+    annotations: {}
+    automount: false
+    labels: {}
+    name: todo-demo-app
+helm_service_cd3064041cf15bbba31e1dc6e7966ea2:
+    name: todo-demo-app
+    port: 80
+    protocol: TCP
+    selector_labels:
+        service: myapp
+    target_port: 80
+    type: ClusterIP
+helm_workload_1b726bfdadb75964b2167b12a98c34ba:
+    env: {}
+    env_from_config: []
+    env_from_secret:
+        - stackgen-quarkus-demo-secret
+    image: quay.io/jfalkner1/stackgen-quarkus-todo
+    image_pull_policy: Always
+    image_pull_secret: null
+    image_tag: 1.0-SNAPSHOT
+    kind: Deployment
+    labels:
+        service: myapp
+    name: todo-demo-app
+    port: 80
+    protocol: TCP
+    replicas: 1
+    service_account: todo-demo-app
+    volume_mounts: []
+    volumes: []
