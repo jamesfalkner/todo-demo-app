@@ -26,7 +26,7 @@
         "appstack": "test10",
         "component": "todo-demo-app"
       },
-      "topic_name": "mytopicname",
+      "topic_name": "mytopicname2",
       "topic_policy": "",
       "tracing_config": null,
       "use_custom_kms_key_for_encryption": true
