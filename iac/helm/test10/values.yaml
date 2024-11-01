@@ -8,15 +8,19 @@ helm_hpa_a996c224f9d757b1b8c6a0b55d394e8a:
     workload_kind: Deployment
     workload_name: todo-demo-app
 helm_ingress_10543cbc8b0450aa8101cdc554e46280:
-    annotations:
-        kubernetes.io/ingress.allow-http: "false"
-    class_name: todo-demo-app
+    annotations: {}
+    class_name: openshift-default
     default_backend_name: todo-demo-app
     default_backend_port: 80
     labels:
         service: myapp
     name: todo-demo-app
-    rules: []
+    rules:
+        - host: stackgen-demo.apps.cluster-qpjn4.qpjn4.sandbox2789.opentlc.com
+          http: ""
+          path: /
+          pathType: Prefix
+          paths: ""
     tls: ""
 helm_service_account_814e7456c6bb5068bbb3a7dde5eb7ea4:
     annotations: {}
