@@ -11,24 +11,6 @@ output "aws_iam_role_todo_demo_app_role_name" {
 }
 
 
-output "aws_rds_default_port" {
-  value = module.stackgen_c0ef0be3-9f3a-5cd3-87d0-bf42719a4b33.port
-  sensitive = false
-}
-
-
-output "aws_rds_default_rds_endpoint" {
-  value = module.stackgen_c0ef0be3-9f3a-5cd3-87d0-bf42719a4b33.rds_endpoint
-  sensitive = false
-}
-
-
-output "aws_rds_default_username" {
-  value = module.stackgen_c0ef0be3-9f3a-5cd3-87d0-bf42719a4b33.username
-  sensitive = false
-}
-
-
 output "aws_rds_default_arn" {
   value = module.stackgen_c0ef0be3-9f3a-5cd3-87d0-bf42719a4b33.arn
   sensitive = false
@@ -44,6 +26,24 @@ output "aws_rds_default_connection_string" {
 output "aws_rds_default_password" {
   value = module.stackgen_c0ef0be3-9f3a-5cd3-87d0-bf42719a4b33.password
   sensitive = true
+}
+
+
+output "aws_rds_default_port" {
+  value = module.stackgen_c0ef0be3-9f3a-5cd3-87d0-bf42719a4b33.port
+  sensitive = false
+}
+
+
+output "aws_rds_default_rds_endpoint" {
+  value = module.stackgen_c0ef0be3-9f3a-5cd3-87d0-bf42719a4b33.rds_endpoint
+  sensitive = false
+}
+
+
+output "aws_rds_default_username" {
+  value = module.stackgen_c0ef0be3-9f3a-5cd3-87d0-bf42719a4b33.username
+  sensitive = false
 }
 
 
