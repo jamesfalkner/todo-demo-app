@@ -54,7 +54,7 @@ spec:
         - name: DOCKERFILE
           value: 'src/main/docker/Dockerfile.jvm'
         - name: IMAGE
-          value: 'quay.io/jamesfalkner1/stackgen-quarkus-todo:$(tasks.extract-project-version.results.version)'
+          value: 'quay.io/jfalkner1/stackgen-quarkus-todo:$(tasks.extract-project-version.results.version)'
       workspaces:
         - name: source
           workspace: workspace
