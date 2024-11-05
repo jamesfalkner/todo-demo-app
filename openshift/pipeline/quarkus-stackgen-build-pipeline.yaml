@@ -1,0 +1,67 @@
+apiVersion: tekton.dev/v1
+kind: Pipeline
+metadata:
+  name: quarkus-stackgen-build-pipeline
+  labels:
+    app: quarkus-stackgen
+spec:
+  params:
+    - name: git-repository-url
+  tasks:
+    - name: clone-repository
+      taskRef:
+        name: git-clone
+        kind: ClusterTask
+      params:
+        - name: url
+          value: $(params.git-repository-url)
+      workspaces:
+        - name: output
+          workspace: workspace
+    - name: run-unit-tests
+      taskRef:
+        name: maven
+        kind: ClusterTask
+      params:
+        - name: MAVEN_IMAGE
+          value: 'registry.access.redhat.com/ubi9/openjdk-21:1.20'
+        - name: GOALS
+          value:
+            - '-B'
+            - '-ntp'
+            - verify
+      workspaces:
+        - name: source
+          workspace: workspace
+        - name: maven-settings
+          workspace: maven-settings
+      runAfter:
+        - clone-repository
+    - name: extract-project-version
+      taskRef:
+        name: extract-project-version
+        kind: ClusterTask
+      workspaces:
+        - name: source
+          workspace: workspace
+      runAfter:
+        - clone-repository
+    - name: build-push-container
+      taskRef:
+        name: buildah
+        kind: ClusterTask
+      params:
+        - name: DOCKERFILE
+          value: 'src/main/docker/Dockerfile.jvm'
+        - name: IMAGE
+          value: 'quay.io/jamesfalkner1/stackgen-quarkus-todo:$(tasks.extract-project-version.results.version)'
+      workspaces:
+        - name: source
+          workspace: workspace
+      runAfter:
+        - extract-project-version
+        - run-unit-tests
+  workspaces:
+    - name: workspace
+    - name: maven-settings
+

@@ -1,6 +1,0 @@
-apiVersion: v2
-appVersion: 1.0.0
-description: Generated helm chart created for service "test10" with appcd
-name: test10
-type: application
-version: 0.1.0

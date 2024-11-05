@@ -1,0 +1,16 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: quarkus-stackgen-build-event-listener-route
+  labels:
+    app: quarkus-stackgen
+spec:
+  to:
+    kind: Service
+    name: el-quarkus-stackgen-build-event-listener
+    weight: 100
+  port:
+    targetPort: http-listener
+  tls:
+    termination: edge
+  wildcardPolicy: None

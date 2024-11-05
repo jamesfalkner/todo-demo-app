@@ -1,0 +1,6 @@
+resources:
+  - extract-project-version-cluster-task.yaml
+  - quarkus-stackgen-build-pipeline.yaml
+  - quarkus-stackgen-build-trigger-template.yaml
+  - quarkus-stackgen-build-event-listener.yaml
+  - quarkus-stackgen-build-event-listener-route.yaml
