@@ -4,3 +4,4 @@ resources:
   - quarkus-stackgen-build-trigger-template.yaml
   - quarkus-stackgen-build-event-listener.yaml
   - quarkus-stackgen-build-event-listener-route.yaml
+  - demo-route.yaml

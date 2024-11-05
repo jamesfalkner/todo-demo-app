@@ -1,0 +1,17 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: todo-demo-app
+  labels:
+    app: quarkus-stackgen
+spec:
+  to:
+    name: todo-demo-app
+    weight: 100
+    kind: Service
+  port:
+    targetPort: 8080
+  tls:
+    termination: edge
+  wildcardPolicy: None
+
