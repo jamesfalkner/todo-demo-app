@@ -34,7 +34,8 @@ helm_service_cd3064041cf15bbba31e1dc6e7966ea2:
 helm_workload_1b726bfdadb75964b2167b12a98c34ba:
     env: {}
     env_from_config: []
-    env_from_secret: []
+    env_from_secret:
+        - ' stackgen-quarkus-demo-secret'
     image: quay.io/jfalkner1/stackgen-quarkus-todo
     image_pull_policy: Always
     image_pull_secret: null
